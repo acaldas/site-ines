@@ -1,0 +1,48 @@
+---
+import "../styles.css";
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+}
+
+const { title, description, url } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="og:title" content={title} />
+    <meta name="og:url" content={url} /><meta
+      name="og:description"
+      content={description}
+    /><meta name="og:type" content="website" /><meta
+      name="og:locale"
+      content="pt_PT"
+    /></head
+  >
+
+  <body>
+    <slot />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNH7E9TYJ4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = gtag;
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-BCTZD3LYJW");
+    </script>
+  </body><!-- Google tag (gtag.js) -->
+</html>

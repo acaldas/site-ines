@@ -1,0 +1,30 @@
+---
+const items = [
+  "Internato de Formação Específica em Psiquiatria no Centro Hospitalar Psiquiátrico de Lisboa;",
+  "Pós-Graduação em Psicoterapia cognitiva, comportamental e integrativa – Associação Portuguesa Terapia Cognitivo Comportamental Integrativa;",
+
+  "Frequência no Mestrado em Doenças metabólicas e do Comportamento Alimentar – Faculdade de Medicina da Universidade de Lisboa;",
+
+  "Formação em Psicoterapia dos Sistemas Familiares Internos – Sociedade Portuguesa de Psicoterapias construtivistas;",
+
+  "Estágios em centros de tratamento de referência nas Doenças do Comportamento Alimentar – Casa di Cura Villa Garda e Azienda Ospedaliero-Universitaria  di Torino;",
+];
+---
+
+<div class="flex flex-row justify-between items-start gap-10">
+  <div>
+    <h3 class="text-title text-4xl mb-8">Sobre mim</h3>
+    <p class="mb-4">Defendo uma abordagem integrativa e centrada na pessoa.</p>
+    <p>
+      Tenho como área de interesse, e de constante especialização, as doenças do
+      comportamento alimentar.
+    </p>
+  </div>
+
+  <div>
+    <h3 class="text-title text-4xl mb-8">Formação e percurso profissional</h3>
+    <ul class="list-disc max-w-xl">
+      {items.map((item, index) => <li class="mb-4">{item}</li>)}
+    </ul>
+  </div>
+</div>

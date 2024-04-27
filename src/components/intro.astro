@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+import photoImg from "../../public/photo.webp";
+import Header from "./header.tsx";
+---
+
+<div
+  class="mt-[42px] flex-1 flex xl:flex-col 2xl:justify-between justify-evenly items-center gap-[80px] xl:gap-10 relative"
+>
+  <div class="w-full flex flex-row items-center justify-between px-[8vw]">
+    <Image src={photoImg} alt="Inês Neves Caldas" />
+    <div>
+      <h2 class="text-title text-5xl mb-3">Inês Neves Caldas</h2>
+      <h3 class="text-white text-lg">PSIQUIATRA E<br />PSICOTERAPEUTA</h3>
+    </div>
+  </div>
+</div>

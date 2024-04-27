@@ -1,0 +1,164 @@
+---
+import Brevo from "@getbrevo/brevo";
+
+let status: "" | "success" | "error" = "";
+
+if (Astro.request.method === "POST") {
+  try {
+    // Getting posted data from our contact form
+    const data = await Astro.request.formData();
+    const firstNames = data.getAll("first_name");
+    const lastNames = data.getAll("last_name");
+    const firstName = firstNames.length > 0 ? firstNames[0] : null;
+    const lastName = lastNames.length > 0 ? lastNames[0] : null;
+    const message = data.get("message");
+    if (!firstName) {
+      return;
+    }
+    const name = `${firstName} ${lastName}`;
+    const client = Brevo.ApiClient.instance;
+
+    // Configure API key authorization: api-key
+    const apiKey = client.authentications["api-key"];
+    apiKey.apiKey = import.meta.env.BREVO_API_KEY;
+
+    const emails: string[] = import.meta.env.EMAIL_CONTACT.split(",");
+    const apiInstance = new Brevo.TransactionalEmailsApi();
+    const response = await apiInstance.sendTransacEmail({
+      sender: { email: "website@casamento.pt" },
+      to: emails.map((email) => ({
+        email,
+        name: email.slice(0, email.indexOf("@")),
+      })),
+      subject: `Mensagem de ${name}`,
+      htmlContent: `
+        <div>
+            <b>Convidados:</b>
+            <ul>
+            ${firstNames
+              .map((name, i) => {
+                return `<li><b>Nome:</b> ${name} ${lastNames[i]}</li>`;
+              })
+              .join("")}
+            </ul>
+            <br/>
+            <hr/>
+            <br/>
+            <b>Mensagem:</b>
+            <p style="white-space: pre-wrap;">${message}</p>
+        </div>`,
+    });
+    if (response.isAxiosError) {
+      throw response;
+    }
+    status = "success";
+  } catch (error) {
+    status = "error";
+    console.error(error);
+  }
+}
+---
+
+<div class="flex-1 mt-[74px]" id={escape("CONFIRMAR PRESENÇA")}>
+  <div
+    class="min-h-[60vh] max-h-[calc(100vh-122px)] ml-[-74px] lg:ml-[-38px] sm:-ml-6 mr-[-74px] lg:mr-[-38px] sm:-mr-6 mb-[-74px] md:mb-[-38px] sm:-mb-6
+    bg-orange text-white rounded-t-[100px] md:rounded-t-[60px] rounded-b-none overflow-auto pt-10"
+  >
+    <div class="w-[576px] max-w-[90vw] mx-auto">
+      <p class="text-xl">Confirmar presença</p>
+      <form method="POST" id="form-wedding" class="my-4" data-astro-reload>
+        <div id="form-wedding-persons">
+          <div class="form-wedding-person flex gap-8 justify-between md:gap-2">
+            <label for="first_name" class="form-label max-w-[calc(50%-16px)]"
+              >Primeiro nome:
+              <input
+                required
+                type="text"
+                id="first_name"
+                name="first_name"
+                class="form-input"
+              />
+            </label>
+            <label for="last_name" class="form-label max-w-[calc(50%-16px)]"
+              >Último nome:
+              <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                class="form-input"
+              />
+            </label>
+          </div>
+        </div>
+        <button
+          id="btn-add"
+          class="border border-white rounded-md px-2 py-1 text-sm mt-2 shadow bg-white/5 hover:bg-white/20"
+          type="button">Adicionar convidado</button
+        >
+        <label for="message" class="form-label mt-4"
+          >Queres dizer-nos mais alguma coisa?</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          class="flex-1 pt-1 resize-none w-full min-h-[120px] max-h-[230px] rounded form-input border placeholder:text-white/80 placeholder:text-sm placeholder:pt-1 mb-4"
+          placeholder="Restrições alimentares, dúvidas, etc..."></textarea>
+        <button
+          type="submit"
+          value="Enviar resposta"
+          class="border border-white rounded-md py-1 ml-auto max-w-full w-full text-lg shadow bg-white/5 hover:bg-white/20"
+          >Enviar resposta</button
+        >
+      </form>
+      {
+        status === "success" ? (
+          <h3 class="text-white">Já vamos ler a mensagem!</h3>
+        ) : status === "error" ? (
+          <h3 class="text-red-600">Ocorreu um erro ao enviar!</h3>
+        ) : null
+      }
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      const button = document.querySelector("#btn-add");
+      const form = document.querySelector("#form-wedding-persons");
+      if (!button || !form) {
+        return;
+      }
+
+      button.addEventListener("click", () => {
+        const persons = form.querySelectorAll(".form-wedding-person").length;
+        form.insertAdjacentHTML(
+          "beforeend",
+          `
+          <div class="form-wedding-person flex gap-8 justify-between md:gap-2 pt-5">
+            <label for="first_name" class="form-label max-w-[calc(50%-16px)]"
+              >Primeiro nome:
+              <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                class="form-input"
+              />
+            </label>
+            <label for="last_name" class="form-label max-w-[calc(50%-16px)]"
+              >Último nome:
+              <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                class="form-input"
+              />
+            </label>
+          </div>
+        `,
+        );
+      });
+    },
+    false,
+  );
+</script>

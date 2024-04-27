@@ -1,0 +1,48 @@
+---
+import About from "../components/about.astro";
+import Activity from "../components/activity.astro";
+import Intro from "../components/intro.astro";
+import Slide from "../components/slide.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SlideItem from "../components/slide-item.astro";
+import Header from "@/components/header";
+---
+
+<BaseLayout
+  title="Inês Neves Caldas"
+  url="https://inesnevescaldas.pt/"
+  description="Psiquiatra e Psicoterapeuta. Tenho como área de interesse, e de constante especialização, as doenças do comportamento alimentar."
+>
+  <div class="h-screen overflow-hidden flex flex-col text-text">
+    <main class="text-text overflow-hidden flex-1">
+      <Header
+        links={["Sobre mim", "Atividade", "Marcar consulta"]}
+        client:load
+      />
+      <Slide>
+        <SlideItem background="bg-red"><Intro /></SlideItem>
+        <SlideItem title="Sobre mim"><About /></SlideItem>
+        <SlideItem title="Atividade"><Activity /></SlideItem>
+        <SlideItem title="Marcar consulta" background="bg-dark" />
+        <SlideItem title="Alguma questão?" />
+      </Slide>
+    </main>
+  </div>
+</BaseLayout>
+
+<script>
+  window.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      const element = window.location.hash
+        ? document.querySelector(`[id='${window.location.hash.slice(1)}']`)
+        : null;
+
+      if (!element) {
+        return null;
+      }
+      element.scrollIntoView();
+    },
+    false,
+  );
+</script>
