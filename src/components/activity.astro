@@ -4,23 +4,35 @@ import activityImg from "../../public/activity.webp";
 ---
 
 <div>
-  <div>
-    <h3 class="text-title text-4xl mb-8">A minha atividade</h3>
-    <div>
-      <p>Co-fundadora da DOCA</p>
-      <p>
-        Consultas de psiquiatria especializadas em Doenças do Comportamento
-        Alimentar; Psiquiatria Geral (Depressão; Perturbação de ansiedade;
-        perturbação afetiva bipolar; Perturbação Obsessiva Compulsiva); e de
-        Psicoterapia
+  <h3 class="text-accent text-2xl">A minha atividade</h3>
+  <div class="flex flex-col lg:flex-row gap-10">
+    <div class="text-sm pt-12 lg:pt-36 mb-16 lg:mb-0">
+      <p class="mb-4">
+        Co-fundadora da <a
+          href="https://equipadoca.pt/"
+          class="underline underline-offset-1"><b>DOCA</b></a
+        >
       </p>
-      <p>
-        Psiquiatra na Clínica Psiquiátrica de São José de Telheiras, com
-        atividade no Hospital de Dia para Doenças de Comportamento Alimentar;
-        internamento de psiquiatria geral de agudos; internamento de
-        psicogeriatria.
-      </p>
+      <ul class="list-inside">
+        <li>
+          Consultas de psiquiatria especializadas em <b
+            >Doenças do Comportamento Alimentar</b
+          >
+        </li>
+        <li class="my-4">
+          <b>Psiquiatria Geral</b>
+          <ul class="list-outside pl-2">
+            <li>Depressão</li>
+            <li>Perturbação de ansiedade</li>
+            <li>perturbação afetiva bipolar</li>
+            <li>Perturbação Obsessiva Compulsiva</li>
+          </ul>
+        </li>
+        <li><b>Psicoterapia</b></li>
+      </ul>
+    </div>
+    <div class="hidden lg:block max-w-[30vw]">
+      <Image src={activityImg} alt="A minha atividade" />
     </div>
   </div>
-  <div><Image src={activityImg} alt="A minha atividade" /></div>
 </div>

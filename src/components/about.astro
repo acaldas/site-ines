@@ -11,10 +11,10 @@ const items = [
 ];
 ---
 
-<div class="flex flex-row justify-between items-start gap-10">
+<div class="flex flex-col md:flex-row justify-between items-start gap-10 py-20">
   <div>
-    <h3 class="text-title text-4xl mb-8">Sobre mim</h3>
-    <p class="mb-4">Defendo uma abordagem integrativa e centrada na pessoa.</p>
+    <h3 class="text-accent text-2xl mb-8">Sobre mim</h3>
+    <p class="pt-4 md:pt-20 mb-4">Defendo uma abordagem integrativa e centrada na pessoa.</p>
     <p>
       Tenho como área de interesse, e de constante especialização, as doenças do
       comportamento alimentar.
@@ -22,9 +22,9 @@ const items = [
   </div>
 
   <div>
-    <h3 class="text-title text-4xl mb-8">Formação e percurso profissional</h3>
+    <h3 class="text-accent text-2xl mb-8">Formação e percurso profissional</h3>
     <ul class="list-disc max-w-xl">
-      {items.map((item, index) => <li class="mb-4">{item}</li>)}
+      {items.map((item, index) => <li class="mb-4 text-[16px]">{item}</li>)}
     </ul>
   </div>
 </div>

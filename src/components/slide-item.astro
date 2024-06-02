@@ -2,18 +2,20 @@
 interface Props {
   title?: string;
   className?: string;
-  background?: "bg-background" | "bg-red" | "bg-dark";
+  background?: "bg-background" | "bg-red" | "bg-bgDark";
 }
 const { title, background = "", className } = Astro.props;
 ---
 
 <div
-  class=`slide-item h-full ${background} snap-always snap-start sm:snap-none
-    overflow-x-hidden ${className}`
+  class=`slide-item min-h-full ${background} snap-always snap-start sm:snap-none
+    overflow-hidden flex flex-col ${className}`
   id={title ? escape(title) : undefined}
   data-title={title}
 >
-  <div class="min-h-full max-w-6xl mx-auto flex flex-col px-[8vw]">
+  <div
+    class="min-h-[calc(100%-80px)] h-full overflow-x-hidden max-w-6xl mx-auto flex flex-1 flex-col px-[8vw]"
+  >
     <slot />
   </div>
 </div>
@@ -51,6 +53,6 @@ const { title, background = "", className } = Astro.props;
 
       slides.forEach((slide) => observer.observe(slide));
     },
-    false,
+    false
   );
 </script>

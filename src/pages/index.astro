@@ -2,6 +2,8 @@
 import About from "../components/about.astro";
 import Activity from "../components/activity.astro";
 import Intro from "../components/intro.astro";
+import Media from "../components/media.astro";
+import Appointment from "../components/appointment.astro";
 import Slide from "../components/slide.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SlideItem from "../components/slide-item.astro";
@@ -16,15 +18,25 @@ import Header from "@/components/header";
   <div class="h-screen overflow-hidden flex flex-col text-text">
     <main class="text-text overflow-hidden flex-1">
       <Header
-        links={["Sobre mim", "Atividade", "Marcar consulta"]}
+        links={[
+          "Sobre mim",
+          "Atividade",
+          "Media",
+          "Marcar consulta",
+          "Alguma questão?",
+        ]}
         client:load
       />
       <Slide>
         <SlideItem background="bg-red"><Intro /></SlideItem>
         <SlideItem title="Sobre mim"><About /></SlideItem>
-        <SlideItem title="Atividade"><Activity /></SlideItem>
-        <SlideItem title="Marcar consulta" background="bg-dark" />
-        <SlideItem title="Alguma questão?" />
+        <SlideItem title="Atividade" className="!min-h-0 lg:h-full"
+          ><Activity /></SlideItem
+        >
+        <SlideItem title="Media"><Media /></SlideItem>
+        <SlideItem title="Marcar consulta" background="bg-bgDark"
+          ><Appointment /></SlideItem
+        >
       </Slide>
     </main>
   </div>
@@ -43,6 +55,6 @@ import Header from "@/components/header";
       }
       element.scrollIntoView();
     },
-    false,
+    false
   );
 </script>

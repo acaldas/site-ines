@@ -1,10 +1,16 @@
+import { cn } from "@/utils";
+
 interface Props {
   title: string;
+  className?: string;
 }
 
-export default ({ title }: Props) => (
+export default ({ title, className }: Props) => (
   <a
-    className="text-white border-b border-transparent hover:border-white"
+    className={cn(
+      "border-b border-transparent hover:border-current no-underline",
+      className,
+    )}
     href={`#${escape(title)}`}
   >
     {title}

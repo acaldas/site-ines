@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import media1 from "../../public/media/media1.jpg";
+import media2 from "../../public/media/media2.png";
+import media3 from "../../public/media/media3.png";
+import media4 from "../../public/media/media4.png";
+
+const media = [
+  {
+    title: "Podcast da MegaHits sobre ​emagrecimento",
+    img: media1,
+    url: "https://megahits.sapo.pt/podcast/23602/nao-tapoquentes/ep02-o-apoquento-do-emagrecimento",
+  },
+  {
+    title: "NewsFarma: O essencial - ​Obesidade",
+    img: media2,
+    url: "https://vimeo.com/931999747",
+  },
+  {
+    title:
+      "Jornal Médico: Doenças do ​comportamento alimentar - ​artigo de opinião",
+    img: media3,
+    url: "https://jornalmedico.pt/perspetivas/73761-e-essencial-explicar-que-existem-pessoas-com-dca-e-que-pode-configurar-uma-doenca-para-a-qual-existe-tratamento/",
+  },
+  {
+    title: "Blog Lusíadas: Relação entre a ​obesidade e depressão",
+    img: media4,
+    url: "https://www.lusiadas.pt/blog/doencas/qual-relacao-entre-obesidade-depressao",
+  },
+] as const;
+---
+
+<div class="mb-14">
+  <h3 class="text-accent text-2xl mb-12">Media</h3>
+  <div
+    class="flex flex-col lg:flex-row gap-10 justify-center items-center lg:items-stretch"
+  >
+    {
+      media.map((m) => (
+        <a
+          href={m.url}
+          class="flex flex-col justify-center items-center gap-4 w-4/5 lg:items-end group hover:drop-shadow-lg transition-all"
+        >
+          <Image
+            src={m.img}
+            alt={m.title}
+            width="300"
+            class="flex-1 rounded-lg object-contain"
+          />
+          <p class="text-sm lg:self-end group-hover:underline">{m.title}</p>
+        </a>
+      ))
+    }
+  </div>
+</div>

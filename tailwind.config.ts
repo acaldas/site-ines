@@ -4,10 +4,10 @@ import { nextui } from "@nextui-org/react"
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx,astro}',
+    './components/**/*.{ts,tsx,astro}',
+    './app/**/*.{ts,tsx,astro}',
+    './src/**/*.{ts,tsx,astro}',
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   prefix: "",
@@ -19,14 +19,31 @@ const config = {
         "2xl": "1400px",
       },
     },
-    colors: {
-      red: "#8a4044",
-      accent: "#bb9c8b",
-      textAccent: "#cfd2d3",
-      text: "#594e3f"
+    extend: {
+      colors: {
+        bg: "#ede6e0",
+        bgDark: "#dcd8d5",
+        red: "#8a4044",
+        accent: "#bb9c8b",
+        textAccent: "#cfd2d3",
+        text: "#594e3f",
+        transparent: 'transparent',
+        current: 'currentColor',
+      },
+      fontSize: {
+        '2xl': '1.65rem'
+      }
     }
   },
-  plugins: [require("tailwindcss-animate"), nextui()],
+  plugins: [require("tailwindcss-animate"), nextui({
+    addCommonColors: true,
+    themes: {
+      light: {
+        colors: {
+        }
+      }
+    }
+  })],
 } satisfies Config
 
 export default config
