@@ -13,9 +13,7 @@ const { title, background = "", className } = Astro.props;
   id={title ? escape(title) : undefined}
   data-title={title}
 >
-  <div
-    class="min-h-[calc(100%-80px)] h-full overflow-x-hidden max-w-6xl mx-auto flex flex-1 flex-col px-[8vw]"
-  >
+  <div class="overflow-x-hidden max-w-6xl mx-auto flex flex-col px-[8vw]">
     <slot />
   </div>
 </div>
