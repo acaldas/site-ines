@@ -3,17 +3,20 @@ interface Props {
   title?: string;
   className?: string;
   background?: "bg-background" | "bg-red" | "bg-bgDark";
+  full?: boolean;
 }
-const { title, background = "", className } = Astro.props;
+const { title, background = "", className, full } = Astro.props;
 ---
 
 <div
-  class=`slide-item min-h-full ${background} snap-always snap-start sm:snap-none
+  class=`slide-item ${full && 'min-h-full'} ${background} snap-always snap-start sm:snap-none
     overflow-hidden flex flex-col scroll-mt-[100px] ${className}`
   id={title ? escape(title) : undefined}
   data-title={title}
 >
-  <div class="overflow-x-hidden max-w-6xl mx-auto flex flex-col px-[8vw]">
+  <div
+    class=`overflow-x-hidden max-w-6xl mx-auto flex flex-col px-[8vw] ${full && 'flex-1'}`
+  >
     <slot />
   </div>
 </div>
