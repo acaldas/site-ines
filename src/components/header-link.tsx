@@ -12,6 +12,7 @@ export default ({ title, className }: Props) => (
       className,
     )}
     href={`#${escape(title)}`}
+    target="_top"
   >
     {title}
   </a>

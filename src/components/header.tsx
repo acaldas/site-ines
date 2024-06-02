@@ -28,7 +28,7 @@ export default (props: Props) => {
       classNames={{ base: "!bg-transparent" }}
     >
       <NavbarBrand>
-        <a href="/" className="text-accent text-xl">
+        <a href="/" target="_top" className="text-accent text-xl">
           Inês Neves Caldas
         </a>
       </NavbarBrand>
