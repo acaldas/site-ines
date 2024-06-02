@@ -1,10 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import activityImg from "../../public/activity.webp";
+
+const { id } = Astro.props;
 ---
 
-<div>
-  <h3 class="text-accent text-2xl">A minha atividade</h3>
+<div class="pt-20">
+  <h3 class="text-accent text-2xl" id={id}>A minha atividade</h3>
   <div class="flex flex-col lg:flex-row gap-10">
     <div class="text-sm pt-12 lg:pt-36 mb-16 lg:mb-0">
       <p class="mb-4">

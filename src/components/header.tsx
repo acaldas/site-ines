@@ -22,10 +22,13 @@ export default (props: Props) => {
     <Navbar
       isBordered
       shouldHideOnScroll
+      isBlurred
+      position="static"
+      className="!bg-transparent"
       classNames={{ base: "!bg-transparent" }}
     >
       <NavbarBrand>
-        <a href="https://inesnevescaldas.pt/" className="text-accent text-xl">
+        <a href="/" className="text-accent text-xl">
           Inês Neves Caldas
         </a>
       </NavbarBrand>

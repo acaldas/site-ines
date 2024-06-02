@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Linkedin, Instagram } from "lucide-react";
 import photoImg from "../../public/photo.webp";
 ---
 
@@ -11,10 +12,21 @@ import photoImg from "../../public/photo.webp";
     alt="Inês Neves Caldas"
     class="w-auto max-w-[80%] lg:max-w-[40%] object-top object-none"
   />
-  <div>
-    <h2 class="text-accent text-4xl mb-3">Inês Neves Caldas</h2>
-    <h3 class="text-textAccent font-semibold tracking-widest text-xs">
+  <div class="h-full">
+    <h2 class="text-accent text-3xl sm:text-5xl mb-3">Inês Neves Caldas</h2>
+    <h3
+      class="text-textAccent font-semibold tracking-widest text-sm xs:text-base"
+    >
       PSIQUIATRA E<br />PSICOTERAPEUTA
     </h3>
+    <div class="flex justify-end gap-3">
+      <a href="https://www.linkedin.com/in/inesnevescaldas/" class="text-accent"
+        ><Linkedin size="32" /></a
+      >
+      <a
+        href="https://www.instagram.com/inesnevescaldas.psiquiatra/"
+        class="text-accent"><Instagram size="32" /></a
+      >
+    </div>
   </div>
 </div>

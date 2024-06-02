@@ -9,7 +9,7 @@ const { title, background = "", className } = Astro.props;
 
 <div
   class=`slide-item min-h-full ${background} snap-always snap-start sm:snap-none
-    overflow-hidden flex flex-col ${className}`
+    overflow-hidden flex flex-col scroll-mt-[100px] ${className}`
   id={title ? escape(title) : undefined}
   data-title={title}
 >
