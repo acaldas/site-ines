@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import logoErs from "../assets/logo-ers.png";
+import logoReclamacoes from "../assets/logo-reclamacoes.png";
+---
+
+<div
+  class="flex w-full p-2 h-14 overflow-hidden text-sm font-thin justify-between px-[6vw] items-stretch"
+>
+  <span class="self-center">PSINC - SERVIÇOS CLÍNICOS, LDA</span>
+  <div class="flex gap-10">
+    <a class="flex" href="https://www.ers.pt/pt/"
+      ><Image
+        src={logoErs}
+        alt="Entidade Reguladora da Saúde - Certidão de Registo"
+        class="object-contain w-auto"
+      /><span class="self-center text-xs">Nº E171609</span></a
+    >
+    <a href="https://www.livroreclamacoes.pt/Inicio/"
+      ><Image
+        src={logoReclamacoes}
+        alt="Livro de Reclamações"
+        class="object-contain w-auto h-full"
+      /></a
+    >
+  </div>
+</div>

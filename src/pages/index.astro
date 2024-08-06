@@ -1,13 +1,14 @@
 ---
-import About from "../components/about.astro";
-import Activity from "../components/activity.astro";
-import Intro from "../components/intro.astro";
-import Media from "../components/media.astro";
-import Appointment from "../components/appointment.astro";
-import Slide from "../components/slide.astro";
+import About from "@/components/about.astro";
+import Activity from "@/components/activity.astro";
+import Intro from "@/components/intro.astro";
+import Media from "@/components/media.astro";
+import Appointment from "@/components/appointment.astro";
+import Slide from "@/components/slide.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SlideItem from "../components/slide-item.astro";
+import SlideItem from "@/components/slide-item.astro";
 import Header from "@/components/header";
+import Footer from "@/components/footer.astro";
 ---
 
 <BaseLayout
@@ -35,6 +36,7 @@ import Header from "@/components/header";
         <SlideItem title="Marcar consulta" background="bg-bgDark"
           ><Appointment /></SlideItem
         >
+        <Footer />
       </Slide>
     </main>
   </div>

@@ -8,7 +8,7 @@ interface Props {
 export default ({ title, className }: Props) => (
   <a
     className={cn(
-      "border-b border-transparent hover:border-current no-underline",
+      "border-b border-transparent hover:border-current no-underline text-accent",
       className,
     )}
     href={`#${escape(title)}`}
