@@ -1,0 +1,21 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex flex-col md:flex-row justify-between items-start pt-[10vh] gap-10 2xl:gap-[4vw]",
+    className,
+  ]}
+>
+  <div class="flex-1">
+    <slot name="left" />
+  </div>
+  <div class="flex-1">
+    <slot name="right" />
+  </div>
+</div>

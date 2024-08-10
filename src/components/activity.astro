@@ -1,42 +1,47 @@
 ---
 import { Image } from "astro:assets";
 import activityImg from "../assets/activity.webp";
+import SlideColumns from "./slide-columns.astro";
 
 const { id } = Astro.props;
 ---
 
-<h3 class="text-accent text-2xl pt-20" id={id}>A minha atividade</h3>
-<div class="flex flex-col lg:flex-row gap-10 items-center">
-  <div class="text-sm mt-6">
-    <p class="mb-4">
-      Co-fundadora da <a
-        href="https://equipadoca.pt/"
-        class="underline underline-offset-1"><b>DOCA</b></a
-      >
-    </p>
-    <ul class="list-inside">
-      <li>
-        Consultas de psiquiatria especializadas em <b
-          >Doenças do Comportamento Alimentar</b
+<SlideColumns className="items-stretch">
+  <Fragment slot="left">
+    <h3 class="text-accent text-2xl mb-12" id={id}>A minha atividade</h3>
+    <div class="text-sm mt-6">
+      <p class="mb-4">
+        Co-fundadora da <a
+          href="https://equipadoca.pt/"
+          class="underline underline-offset-1"><b>DOCA</b></a
         >
-      </li>
-      <li class="my-4">
-        <b>Psiquiatria Geral</b>
-        <ul class="list-outside pl-2">
-          <li>Depressão</li>
-          <li>Perturbação de ansiedade</li>
-          <li>perturbação afetiva bipolar</li>
-          <li>Perturbação Obsessiva Compulsiva</li>
-        </ul>
-      </li>
-      <li><b>Psicoterapia</b></li>
-    </ul>
-  </div>
-  <div class="hidden lg:block max-w-[30vw] max-h-[60vh] overflow-hidden">
-    <Image
-      src={activityImg}
-      alt="A minha atividade"
-      class="max-h-full object-contain"
-    />
-  </div>
-</div>
+      </p>
+      <ul class="list-inside">
+        <li class="max-w-xs md:max-w-screen-xs">
+          Consultas de psiquiatria especializadas em <b
+            >Doenças do Comportamento Alimentar</b
+          >
+        </li>
+        <li class="my-4">
+          <b>Psiquiatria Geral</b>
+          <ul class="list-outside pl-2">
+            <li>Depressão</li>
+            <li>Perturbação de ansiedade</li>
+            <li>perturbação afetiva bipolar</li>
+            <li>Perturbação Obsessiva Compulsiva</li>
+          </ul>
+        </li>
+        <li><b>Psicoterapia</b></li>
+      </ul>
+    </div>
+  </Fragment>
+  <Fragment slot="right">
+    <div class="hidden lg:flex max-h-[60vh] overflow-hidden py-8">
+      <Image
+        src={activityImg}
+        alt="A minha atividade"
+        class="max-h-full object-contain object-left"
+      />
+    </div>
+  </Fragment>
+</SlideColumns>

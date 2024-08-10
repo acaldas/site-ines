@@ -1,21 +1,19 @@
 ---
 import { Image } from "astro:assets";
 import appointmentImg from "../../public/appointment.webp";
+import SlideColumns from "./slide-columns.astro";
 ---
 
-<div class="pt-20 pb-12">
-  <h3 class="text-accent text-2xl mb-12">Como marcar consulta?</h3>
-  <div
-    class="flex flex-col gap-10 md:flex-row-reverse items-center justify-between"
-  >
-    <div class="">
+<SlideColumns className="flex-1 pb-20">
+  <Fragment slot="left">
+    <h3 class="text-accent text-2xl mb-12">Como marcar consulta?</h3>
+    <div class="lg:pr-8">
       <p>
         Contacte o <a href="tel:215816427" class="underline underline-offset-1"
           ><b>215816427</b></a
         > ou <a
           href="mailto::europsyc.clinica.lisboa@gmail.com"
-          class="underline underline-offset-1"
-          >neuropsyc.clinica.lisboa@gmail.com</a
+          class="underline underline-offset-1">geral@inesnevescaldas.pt</a
         > para marcações ou informações sobre as consultas.
       </p>
       <p class="my-[6vh]">Estas poderão ser online ou presenciais.</p>
@@ -27,10 +25,14 @@ import appointmentImg from "../../public/appointment.webp";
         >
       </p>
     </div>
-    <Image
-      src={appointmentImg}
-      class="max-w-[60%] md:max-w-[40%] object-contain"
-      alt="Como marcar consulta?"
-    />
-  </div>
-</div>
+  </Fragment>
+  <Fragment slot="right">
+    <div class="h-[60vh] overflow-hidden hidden md:flex">
+      <Image
+        src={appointmentImg}
+        alt="Como marcar consulta?"
+        class="max-h-full object-contain object-center"
+      />
+    </div>
+  </Fragment>
+</SlideColumns>

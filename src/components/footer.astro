@@ -4,24 +4,32 @@ import logoErs from "../assets/logo-ers.png";
 import logoReclamacoes from "../assets/logo-reclamacoes.png";
 ---
 
-<div
-  class="flex w-full p-2 h-14 overflow-hidden text-sm font-thin justify-between px-[6vw] items-stretch"
->
-  <span class="self-center">PSINC - SERVIÇOS CLÍNICOS, LDA</span>
-  <div class="flex gap-10">
-    <a class="flex" href="https://www.ers.pt/pt/"
-      ><Image
-        src={logoErs}
-        alt="Entidade Reguladora da Saúde - Certidão de Registo"
-        class="object-contain w-auto"
-      /><span class="self-center text-xs">Nº E171609</span></a
+<div class="max-w-7xl mx-auto">
+  <div
+    class:list={[
+      "py-2 overflow-hidden text-tiny sm:text-sm font-thin mx-[2vw]",
+      "flex flex-row h-14 justify-start items-center xs:gap-2",
+    ]}
+  >
+    <span class="self-center flex-shrink flex-1 min-w-[140px] xs:min-w-none"
+      >PSINC - SERVIÇOS CLÍNICOS, LDA</span
     >
-    <a href="https://www.livroreclamacoes.pt/Inicio/"
-      ><Image
-        src={logoReclamacoes}
-        alt="Livro de Reclamações"
-        class="object-contain w-auto h-full"
-      /></a
-    >
+    <div class="flex flex-0 h-7 justify-end gap-1 xs:gap-[4vw]">
+      <a class="flex" href="https://www.ers.pt/pt/"
+        ><Image
+          src={logoErs}
+          alt="Entidade Reguladora da Saúde - Certidão de Registo"
+          class="object-contain w-auto"
+        /><span class="self-center text-[13px] xs:text-tiny">Nº E171609</span
+        ></a
+      >
+      <a href="https://www.livroreclamacoes.pt/Inicio/"
+        ><Image
+          src={logoReclamacoes}
+          alt="Livro de Reclamações"
+          class="object-contain w-full h-full object-right"
+        /></a
+      >
+    </div>
   </div>
 </div>

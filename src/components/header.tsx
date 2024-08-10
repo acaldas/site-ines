@@ -20,12 +20,14 @@ export default (props: Props) => {
 
   const socialLinks = [
     <a
+      key="linkedin"
       href="https://www.linkedin.com/in/inesnevescaldas/"
       className="text-accent"
     >
       <Linkedin size="28" strokeWidth={1.5} />
     </a>,
     <a
+      key="instagram"
       href="https://www.instagram.com/inesnevescaldas.psiquiatra/"
       className="text-accent"
     >

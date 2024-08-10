@@ -9,13 +9,18 @@ const { title, background = "", className, full } = Astro.props;
 ---
 
 <div
-  class=`slide-item ${full && 'min-h-full'} ${background} snap-always snap-start sm:snap-none
-    overflow-hidden flex flex-col scroll-mt-[100px] ${className}`
+  class:list={[
+    "slide-item snap-always snap-start sm:snap-none px-[10vw]",
+    "overflow-hidden flex flex-col scroll-mt-[100px] items-center",
+    full && "min-h-full px-0",
+    background,
+    className,
+  ]}
   id={title ? escape(title) : undefined}
   data-title={title}
 >
   <div
-    class=`overflow-x-hidden max-w-6xl mx-auto flex flex-col px-[8vw] ${full && 'flex-1'}`
+    class=`w-full overflow-x-hidden max-w-7xl flex flex-col ${full && 'flex-1'}`
   >
     <slot />
   </div>
