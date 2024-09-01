@@ -51,7 +51,7 @@ export default (props: Props) => {
           </a>
         </NavbarBrand>
         <NavbarContent
-          className="hidden md:flex gap-2 lg:gap-5"
+          className="hidden md:flex gap-2 lg:gap-5 flex-grow !justify-evenly"
           justify="center"
         >
           {links.map((link) => (
@@ -59,7 +59,7 @@ export default (props: Props) => {
               key={link}
               className="text-white/70 hover:text-white text-sm lg:text-base"
             >
-              <HeaderLink title={link} />
+              <HeaderLink title={link} bold={link === "Marcar consulta"} />
             </NavbarItem>
           ))}
         </NavbarContent>
@@ -80,7 +80,7 @@ export default (props: Props) => {
             >
               {links.map((link) => (
                 <DropdownItem key={link}>
-                  <HeaderLink title={link} className="text-accent" />
+                  <HeaderLink title={link} bold={link === "Marcar consulta"} />
                 </DropdownItem>
               ))}
             </DropdownMenu>

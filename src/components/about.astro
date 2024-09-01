@@ -2,14 +2,11 @@
 import SlideColumns from "./slide-columns.astro";
 
 const items = [
-  "Internato de Formação Específica em Psiquiatria no Centro Hospitalar Psiquiátrico de Lisboa;",
-  "Pós-Graduação em Psicoterapia cognitiva, comportamental e integrativa – Associação Portuguesa Terapia Cognitivo Comportamental Integrativa;",
-
-  "Frequência no Mestrado em Doenças metabólicas e do Comportamento Alimentar – Faculdade de Medicina da Universidade de Lisboa;",
-
-  "Formação em Psicoterapia dos Sistemas Familiares Internos – Sociedade Portuguesa de Psicoterapias construtivistas;",
-
-  "Estágios em centros de tratamento de referência nas Doenças do Comportamento Alimentar – Casa di Cura Villa Garda e Azienda Ospedaliero-Universitaria  di Torino;",
+  "<b>Internato de Formação Específica em Psiquiatria</b> no Centro Hospitalar Psiquiátrico de Lisboa;",
+  "<b>Pós-Graduação em Psicoterapia cognitiva, comportamental e integrativa</b> – Associação Portuguesa Terapia Cognitivo Comportamental Integrativa;",
+  "<b>Formação em Psicoterapia dos Sistemas Familiares Internos</b> – Sociedade Portuguesa de Psicoterapias construtivistas;",
+  "<b>Estágios em centros de tratamento de referência nas Doenças do Comportamento Alimentar</b> – Casa di Cura Villa Garda e Azienda Ospedaliero-Universitaria  di Torino;",
+  "<b>Frequência no Mestrado em Doenças metabólicas e do Comportamento Alimentar</b> – Faculdade de Medicina da Universidade de Lisboa;",
 ];
 ---
 
@@ -28,8 +25,10 @@ const items = [
     <h3 class="text-accent text-2xl mb-8">Formação e percurso profissional</h3>
     <ul class="list-disc max-w-xl">
       {
-        items.map((item, index) => (
-          <li class="mb-4 text-[16px] last:mb-0">{item}</li>
+        items.map((item) => (
+          <li class="mb-4 text-[16px] last:mb-0">
+            <Fragment set:html={item} />
+          </li>
         ))
       }
     </ul>

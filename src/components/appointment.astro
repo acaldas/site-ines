@@ -1,38 +1,82 @@
 ---
-import { Image } from "astro:assets";
-import appointmentImg from "../../public/appointment.webp";
+import { Mail } from "lucide-react";
+import WhatsappIcon from "../assets/whatsapp.svg?raw";
 import SlideColumns from "./slide-columns.astro";
 ---
 
-<SlideColumns className="flex-1 pb-20">
+<SlideColumns className="flex-1 pb-20 md:flex-col lg:flex-row items-stretch">
   <Fragment slot="left">
     <h3 class="text-accent text-2xl mb-12">Como marcar consulta?</h3>
     <div class="lg:pr-8">
+      <div>
+        <p class="mb-1">
+          As consultas poderão ser <b>online</b> ou <b>presenciais</b>.
+        </p>
+        <p>
+          A morada é <a
+            href="maps://https://maps.app.goo.gl/cCsH18nv6ryNwHV17"
+            class="underline underline-offset-1"
+            >Avenida António Augusto de Aguiar, nº 42, Cave esq., Lisboa.</a
+          >
+        </p>
+      </div>
+      <div class="my-[6vh]">
+        <b>Contactos preferenciais:</b>
+        <ul class="pt-2">
+          <li>
+            <a
+              class="flex items-center gap-1 mb-1"
+              title="WhatsApp"
+              href="https://wa.me/+351928165937"
+            >
+              <div class="w-[24px] text-[#25D366]">
+                <Fragment set:html={WhatsappIcon} />
+              </div>
+              <span class="underline underline-offset-1">928165937</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center gap-1"
+              title="Email"
+              href="mailto:geral@inesnevescaldas.pt"
+            >
+              <div class="text-accent">
+                <Mail size={24} />
+              </div>
+              <span class="underline underline-offset-1"
+                >geral@inesnevescaldas.pt</span
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
       <p>
-        Contacte o <a href="tel:215816427" class="underline underline-offset-1"
-          ><b>215816427</b></a
-        > ou <a
-          href="mailto::europsyc.clinica.lisboa@gmail.com"
-          class="underline underline-offset-1">geral@inesnevescaldas.pt</a
-        > para marcações ou informações sobre as consultas.
-      </p>
-      <p class="my-[6vh]">Estas poderão ser online ou presenciais.</p>
-      <p>
-        A morada é <a
-          href="maps://https://maps.app.goo.gl/cCsH18nv6ryNwHV17"
-          class="underline underline-offset-1"
-          >Avenida António Augusto de Aguiar, nº 42, Cave esq., Lisboa.</a
-        >
+        Também pode contactar telefonicamente o <a
+          href="tel:928165937"
+          class="underline underline-offset-1">928165937</a
+        >, de segunda à sexta entre as <b>15h</b> e as <b>18h</b>.
       </p>
     </div>
   </Fragment>
   <Fragment slot="right">
-    <div class="h-[60vh] overflow-hidden hidden md:flex">
-      <Image
-        src={appointmentImg}
-        alt="Como marcar consulta?"
-        class="max-h-full object-contain object-center"
-      />
+    <h3 class="text-accent text-2xl mb-12 pointer-events-none hidden lg:block">
+      &nbsp;
+    </h3>
+    <p class="mb-[6vh] lg:text-center">
+      Se preferir marcar através do site clique numa das opções abaixo:
+    </p>
+    <div class="flex flex-col items-center justify-evenly gap-[5vh]">
+      <a
+        class="max-w-full w-72 xs:text-lg text-center inline-block bg-accent py-2 rounded-xl shadow-md hover:shadow-xl"
+        href="https://inescaldas.fillout.com/1aConsultaOnline"
+        >Primeira consulta online</a
+      >
+      <a
+        class="max-w-full w-72 xs:text-lg text-center inline-block bg-accent py-2 rounded-xl shadow-md hover:shadow-x"
+        href="https://inescaldas.fillout.com/1aConsultaPresencial"
+        >Primeira consulta presencial</a
+      >
     </div>
   </Fragment>
 </SlideColumns>
