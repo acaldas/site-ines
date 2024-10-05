@@ -14,8 +14,7 @@ export default defineConfig({
     }),
     react(),
   ],
-  output: "server",
-  adapter: vercel(),
+  output: "static",
   devToolbar: {
     enabled: false,
   },
