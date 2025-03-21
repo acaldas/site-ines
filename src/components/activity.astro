@@ -10,31 +10,20 @@ const { id } = Astro.props;
   <Fragment slot="left">
     <h3 class="text-accent text-2xl mb-12" id={id}>A minha atividade</h3>
     <div class="text-sm mt-6">
-      <p class="mb-4">
-        Co-fundadora da <a
-          href="https://equipadoca.pt/"
-          class="underline underline-offset-1"><b>DOCA</b></a
-        >
-      </p>
       <ul class="list-inside">
         <li class="max-w-xs md:max-w-screen-xs">
-          <b>Consultas de psiquiatria</b>
+          <b>Consultas de psiquiatria e psicoterapia</b>
           <ul class="pl-3 list-['-']">
             <li>
               <span class="pl-1">Perturbações do Comportamento Alimentar</span>
             </li>
-            <li><span class="pl-1">Psiquiatria Geral</span></li>
+            <li><span class="pl-1">Depressão</span></li>
+            <li><span class="pl-1">Perturbações de ansiedade</span></li>
+            <li><span class="pl-1">Perturbação de Hiperatividade e Défice de Atenção</span></li>
+            <li><span class="pl-1">Perturbação Obsessiva Compulsiva</span></li>
+            <li><span class="pl-1">(entre outras)</span></li>
           </ul>
         </li>
-        <li class="my-4">
-          <ul class="list-outside">
-            <li>Perturbação depressiva</li>
-            <li>Perturbação de ansiedade</li>
-            <li>Perturbação Obsessiva Compulsiva</li>
-            <li>Perturbação de Hiperatividade e Défice de Atenção</li>
-          </ul>
-        </li>
-        <li><b>Consultas de Psicoterapia</b></li>
       </ul>
     </div>
   </Fragment>
