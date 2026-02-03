@@ -18,16 +18,7 @@ import Footer from "@/components/footer.astro";
 >
   <div class="h-screen overflow-hidden flex flex-col text-text">
     <main class="text-text overflow-hidden flex-1">
-      <Header
-        links={[
-          "Sobre mim",
-          "Atividade",
-          "Media",
-          "Marcar consulta",
-          // "Alguma questão?",
-        ]}
-        client:load
-      />
+      <Header client:load />
       <Slide>
         <SlideItem background="bg-red" full><Intro /></SlideItem>
         <SlideItem title="Sobre mim"><About /></SlideItem>

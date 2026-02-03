@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { screens } from "tailwindcss/defaultTheme";
+import { screens, fontSize } from "tailwindcss/defaultTheme";
 import { nextui } from "@nextui-org/react";
 
 const config = {
@@ -36,6 +36,7 @@ const config = {
         current: "currentColor",
       },
       fontSize: {
+        ...fontSize,
         "2xl": "1.65rem",
       },
       typography: {

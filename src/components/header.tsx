@@ -11,12 +11,25 @@ import {
 import HeaderLink from "./header-link";
 import { Menu, Linkedin, Instagram } from "lucide-react";
 
+const defaultLinks = [
+  "Sobre mim",
+  "Atividade",
+  "Media",
+  "Ebook",
+  "Marcar consulta",
+];
+
 interface Props {
-  links: string[];
+  links?: string[];
 }
 
+const highlightedLinks = ["Ebook", "Marcar consulta"];
+
 export default (props: Props) => {
-  const { links } = props;
+  const { links = defaultLinks } = props;
+
+  const regularLinks = links.filter((link) => !highlightedLinks.includes(link));
+  const ctaLinks = links.filter((link) => highlightedLinks.includes(link));
 
   const socialLinks = [
     <a
@@ -59,12 +72,24 @@ export default (props: Props) => {
               key={link}
               className="text-white/70 hover:text-white text-sm lg:text-base"
             >
-              <HeaderLink title={link} bold={link === "Marcar consulta"} />
+              <HeaderLink
+                title={link}
+                bold={link === "Marcar consulta" || link === "Ebook"}
+                href={link === "Ebook" ? "/ebook" : undefined}
+              />
             </NavbarItem>
           ))}
         </NavbarContent>
-        <NavbarContent justify="end" className="md:hidden" as="div">
-          <div className="gap-4 px-[10px] hidden xs:flex">{socialLinks}</div>
+        <NavbarContent justify="end" className="md:hidden gap-2" as="div">
+          {ctaLinks.map((link) => (
+            <NavbarItem key={link} className="hidden xs:flex">
+              <HeaderLink
+                title={link}
+                bold
+                href={link === "Ebook" ? "/ebook" : undefined}
+              />
+            </NavbarItem>
+          ))}
           <Dropdown placement="bottom" className="bg-bg">
             <DropdownTrigger>
               <Menu size={32} className="text-accent" />
@@ -78,11 +103,23 @@ export default (props: Props) => {
                 </div>
               }
             >
-              {links.map((link) => (
+              {regularLinks.map((link) => (
                 <DropdownItem key={link}>
-                  <HeaderLink title={link} bold={link === "Marcar consulta"} />
+                  <HeaderLink title={link} />
                 </DropdownItem>
               ))}
+              {ctaLinks.map((link) => (
+                <DropdownItem key={link} className="xs:hidden">
+                  <HeaderLink
+                    title={link}
+                    bold
+                    href={link === "Ebook" ? "/ebook" : undefined}
+                  />
+                </DropdownItem>
+              ))}
+              <DropdownItem className="hidden xs:flex">
+                <div className="flex gap-4 px-[10px]">{socialLinks}</div>
+              </DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </NavbarContent>
