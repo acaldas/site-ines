@@ -13,7 +13,7 @@ export default ({ title, className, bold }: Props) => (
       bold && "bg-accent text-white px-2 py-1 rounded-xl",
       className,
     )}
-    href={`#${escape(title)}`}
+    href={`/#${escape(title)}`}
     target="_top"
   >
     {title}

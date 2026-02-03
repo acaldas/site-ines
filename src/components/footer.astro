@@ -4,31 +4,36 @@ import logoErs from "../assets/logo-ers.png";
 import logoReclamacoes from "../assets/logo-reclamacoes.png";
 ---
 
-<div
-  class:list={[
-    "py-2 overflow-hidden text-tiny sm:text-sm font-thin mx-[2vw]",
-    "flex flex-row h-14 justify-start items-center sm:gap-2",
-  ]}
->
-  <span class="self-center flex-shrink flex-1 hidden sm:block"
-    >PSINC - SERVIÇOS CLÍNICOS, LDA</span
-  >
-  <div
-    class="flex flex-1 flex-0 h-7 justify-around sm:justify-end gap-1 sm:gap-[4vw]"
-  >
-    <a class="flex" href="https://www.ers.pt/pt/"
-      ><Image
-        src={logoErs}
-        alt="Entidade Reguladora da Saúde - Certidão de Registo"
-        class="object-contain w-auto"
-      /><span class="self-center text-[13px] sm:text-tiny">Nº E171609</span></a
+<div class="py-2 overflow-hidden text-tiny sm:text-sm font-thin mx-[2vw] flex flex-col gap-1">
+  <div class="flex flex-row h-14 justify-start items-center sm:gap-2">
+    <div class="self-center flex-shrink flex-1 hidden sm:flex sm:flex-col sm:gap-0.5">
+      <span>PSINC - SERVIÇOS CLÍNICOS, LDA</span>
+      <div class="flex gap-3 text-xs">
+        <a href="/termos" class="hover:underline">Termos e Condições</a>
+        <a href="/privacidade" class="hover:underline">Política de Privacidade</a>
+      </div>
+    </div>
+    <div
+      class="flex flex-1 flex-0 h-7 justify-around sm:justify-end gap-1 sm:gap-[4vw]"
     >
-    <a href="https://www.livroreclamacoes.pt/Inicio/"
-      ><Image
-        src={logoReclamacoes}
-        alt="Livro de Reclamações"
-        class="object-contain w-full h-full object-right"
-      /></a
-    >
+      <a class="flex" href="https://www.ers.pt/pt/"
+        ><Image
+          src={logoErs}
+          alt="Entidade Reguladora da Saúde - Certidão de Registo"
+          class="object-contain w-auto"
+        /><span class="self-center text-[13px] sm:text-tiny">Nº E171609</span></a
+      >
+      <a href="https://www.livroreclamacoes.pt/Inicio/"
+        ><Image
+          src={logoReclamacoes}
+          alt="Livro de Reclamações"
+          class="object-contain w-full h-full object-right"
+        /></a
+      >
+    </div>
+  </div>
+  <div class="flex sm:hidden justify-around text-xs">
+    <a href="/termos" class="hover:underline">Termos e Condições</a>
+    <a href="/privacidade" class="hover:underline">Política de Privacidade</a>
   </div>
 </div>

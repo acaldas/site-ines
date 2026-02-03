@@ -38,10 +38,31 @@ const config = {
       fontSize: {
         "2xl": "1.65rem",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: "#594e3f",
+            a: {
+              color: "#8a4044",
+              "&:hover": {
+                color: "#6b3235",
+              },
+            },
+            h1: { color: "#594e3f" },
+            h2: { color: "#594e3f" },
+            h3: { color: "#594e3f" },
+            h4: { color: "#594e3f" },
+            h5: { color: "#594e3f" },
+            h6: { color: "#594e3f" },
+            strong: { color: "#594e3f" },
+          },
+        },
+      },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
     nextui({
       addCommonColors: true,
       themes: {
