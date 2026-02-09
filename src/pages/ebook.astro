@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "@/components/header";
 import Footer from "@/components/footer.astro";
+import EbookPurchase from "@/components/ebook-purchase";
 import ebookImg from "@/assets/ebook1.webp";
 ---
 
@@ -32,30 +33,8 @@ import ebookImg from "@/assets/ebook1.webp";
               class="w-auto max-w-full max-h-[500px] object-contain rounded-lg shadow-lg"
             />
           </div>
-          <div class="w-full text-lg md:w-3/5">
-            <p class="mb-5">
-              Este <em>ebook</em> surgiu da necessidade de colmatar uma lacuna que identifiquei na área das Perturbações do Comportamento Alimentar: a escassez de literatura em português que apresente informação clara e fundamentada. Ao longo da minha prática, percebi que tanto profissionais de saúde como familiares e as próprias pessoas com estas perturbações procuravam compreendê-las melhor.
-            </p>
-            <p class="mb-5">
-              Este guia desmistifica as Perturbações do Comportamento Alimentar e explora sinais e sintomas, mitos, tratamentos, riscos físicos e psicológicos. O <em>ebook</em> inclui ainda conselhos práticos sobre o pedido de ajuda, para o próprio leitor ou para uma pessoa próxima.
-            </p>
-            <p class="mb-8">
-              O ponto de partida para qualquer pessoa (profissional de saúde, ou não) que pretende, em linguagem acessível, aprender mais sobre o mundo das Perturbações do Comportamento Alimentar.
-            </p>
-            <div class="bg-bgDark rounded-lg p-5 text-center">
-              <p class="text-sm text-text/70">Investimento</p>
-              <p class="text-3xl font-bold text-red mb-4">22,50€</p>
-              <a
-                href="/"
-                class="inline-block bg-red text-white px-8 py-3 rounded-xl font-medium shadow-lg shadow-red/50 hover:bg-red/90 hover:shadow-red/40 hover:scale-105 active:scale-95 transition-all duration-200"
-              >
-                Comprar eBook
-              </a>
-            </div>
-            
-          <p class="text-xs text-text/90 pt-5 text-center italic px-2">
-          *Este e-book tem fins exclusivamente informativos e educativos, não devendo ser utilizado como instrumento de autodiagnóstico ou de tratamento autónomo.
-        </p>
+          <div class="w-full md:w-3/5">
+            <EbookPurchase client:load />
           </div>
         </div>
       </div>

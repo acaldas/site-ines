@@ -1,7 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pnpm run build:*)"
+      "Bash(pnpm run build:*)",
+      "mcp__shadcn__search_items_in_registries",
+      "mcp__shadcn__view_items_in_registries",
+      "mcp__shadcn__get_item_examples_from_registries",
+      "mcp__shadcn__get_add_command_for_items",
+      "Bash(pnpm dlx shadcn@latest add:*)",
+      "Bash(pnpm list:*)",
+      "mcp__ide__getDiagnostics"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "shadcn"
+  ]
 }
