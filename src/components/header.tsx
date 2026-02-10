@@ -75,7 +75,11 @@ export default (props: Props) => {
               <HeaderLink
                 title={link}
                 bold={link === "Marcar consulta" || link === "Ebook"}
-                href={link === "Ebook" ? "/ebook" : undefined}
+                href={
+                  link === "Ebook"
+                    ? "https://inesnevescaldas.com/produto/e-book-compreender-e-desmistificar-perturbacoes-do-comportamento-alimentar/"
+                    : undefined
+                }
               />
             </NavbarItem>
           ))}
@@ -86,7 +90,11 @@ export default (props: Props) => {
               <HeaderLink
                 title={link}
                 bold
-                href={link === "Ebook" ? "/ebook" : undefined}
+                href={
+                  link === "Ebook"
+                    ? "https://inesnevescaldas.com/produto/e-book-compreender-e-desmistificar-perturbacoes-do-comportamento-alimentar/"
+                    : undefined
+                }
               />
             </NavbarItem>
           ))}
@@ -113,7 +121,11 @@ export default (props: Props) => {
                   <HeaderLink
                     title={link}
                     bold
-                    href={link === "Ebook" ? "/ebook" : undefined}
+                    href={
+                      link === "Ebook"
+                        ? "https://inesnevescaldas.com/produto/e-book-compreender-e-desmistificar-perturbacoes-do-comportamento-alimentar/"
+                        : undefined
+                    }
                   />
                 </DropdownItem>
               ))}
