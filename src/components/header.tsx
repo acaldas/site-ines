@@ -19,6 +19,8 @@ const defaultLinks = [
   "Marcar consulta",
 ];
 
+const ebookLink = "https://inesnevescaldas.com/ebook-pca-2/";
+
 interface Props {
   links?: string[];
 }
@@ -75,11 +77,7 @@ export default (props: Props) => {
               <HeaderLink
                 title={link}
                 bold={link === "Marcar consulta" || link === "Ebook"}
-                href={
-                  link === "Ebook"
-                    ? "https://inesnevescaldas.com/produto/e-book-compreender-e-desmistificar-perturbacoes-do-comportamento-alimentar/"
-                    : undefined
-                }
+                href={link === "Ebook" ? ebookLink : undefined}
               />
             </NavbarItem>
           ))}
@@ -90,11 +88,7 @@ export default (props: Props) => {
               <HeaderLink
                 title={link}
                 bold
-                href={
-                  link === "Ebook"
-                    ? "https://inesnevescaldas.com/produto/e-book-compreender-e-desmistificar-perturbacoes-do-comportamento-alimentar/"
-                    : undefined
-                }
+                href={link === "Ebook" ? ebookLink : undefined}
               />
             </NavbarItem>
           ))}
@@ -121,11 +115,7 @@ export default (props: Props) => {
                   <HeaderLink
                     title={link}
                     bold
-                    href={
-                      link === "Ebook"
-                        ? "https://inesnevescaldas.com/produto/e-book-compreender-e-desmistificar-perturbacoes-do-comportamento-alimentar/"
-                        : undefined
-                    }
+                    href={link === "Ebook" ? ebookLink : undefined}
                   />
                 </DropdownItem>
               ))}
